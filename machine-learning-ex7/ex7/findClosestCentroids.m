@@ -21,11 +21,17 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
-
-
-
-
+for i = 1:size(idx)
+    temp_index = 0;
+    temp = inf;
+    for j = 1:K
+        if(norm(X(i,:)-centroids(j,:))<temp)
+            temp_index = j;
+            temp = norm(X(i,:)-centroids(j,:));
+        end
+    end
+    idx(i) = temp_index;
+end
 
 % =============================================================
 
